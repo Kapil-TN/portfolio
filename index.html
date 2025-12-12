@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapil T N | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<body>
+
+    <!-- DARK MODE BUTTON -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><span>Kapil</span></div>
+
+            <div class="links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+
+        <div class="dropdown">
+            <div class="links">
+                <a href="#home" onclick="cancel()">Home</a>
+                <a href="#about" onclick="cancel()">About</a>
+                <a href="#skills" onclick="cancel()">Skills</a>
+                <a href="#projects" onclick="cancel()">Projects</a>
+                <a href="#contact" onclick="cancel()">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home">
+        <div class="main-container">
+            
+            <div class="image">
+                <img src="main.jpg" alt="Kapil T N">
+            </div>
+
+            <div class="content">
+                <h1>Hey I'm <span>Kapil T N</span></h1>
+
+                <div class="typewriter">I'm a <span></span></div>
+
+                <p>
+                    I am just getting started with web development and have learned the basics
+                    of HTML, CSS, and JavaScript. I can create simple and responsive web pages and 
+                    enjoy trying out new things as I learn. I am excited to keep improving and 
+                    build better websites over time.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://github.com/Kapil-TN" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kapil-tn-9a9a69327" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/kapiltn/" target="_blank"><i class="fa-solid fa-code"></i></a>
+                </div>
+
+                <button class="cv-btn" onclick="window.open('cv.pdf', '_blank')">Download CV</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I'm Kapil T N, a beginner full stack developer currently learning the foundations 
+                of web development. I enjoy building simple, clean, and responsive web pages. 
+                As I continue learning, I aim to build complete full-stack projects and explore 
+                modern technologies.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+
+            <div class="skills-container">
+                <div class="skill-box">HTML</div>
+                <div class="skill-box">CSS</div>
+                <div class="skill-box">JavaScript</div>
+                <div class="skill-box">React JS</div>
+                <div class="skill-box">C</div>
+                <div class="skill-box">C++</div>
+                <div class="skill-box">Java</div>
+                <div class="skill-box">Python</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Public Feedback Logger</h3>
+                    <p>A tool that collects event feedback for college programs.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Syntax Checker</h3>
+                    <p>A simple syntax validator that checks code errors.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Weather App</h3>
+                    <p>A weather application displaying real-time temperature and conditions.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to reach out, feel free to message me through LinkedIn or email.</p>
+
+            <div class="contact-buttons">
+                <a href="mailto:kapil.tnkk1@gmail.com" class="contact-btn">Email Me</a>
+                <a href="https://www.linkedin.com/in/kapil-tn-9a9a69327" class="contact-btn">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({offset:0});</script>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", e => {
+                if (link.getAttribute("href").startsWith("#")) {
+                    e.preventDefault();
+                    document.querySelector(link.getAttribute("href"))
+                        .scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        // Hamburger
+        function hamburg(){ document.querySelector(".dropdown").style.transform = "translateY(0)"; }
+        function cancel(){ document.querySelector(".dropdown").style.transform = "translateY(-500px)"; }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+            const icon = document.querySelector(".theme-toggle i");
+            icon.classList.toggle("fa-moon");
+            icon.classList.toggle("fa-sun");
+        }
+    </script>
+
+</body>
+</html>
